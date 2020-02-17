@@ -6,7 +6,8 @@ ENV LANG C.UTF-8
 
 # 必要なパッケージのインストール
 # /var/lib/apt/lists配下のキャッシュを削除し、容量を小さくする
-RUN apt-get update -qq && \
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
+    apt-get update -qq && \
     apt-get install -y build-essential \ 
                        libpq-dev \        
                        nodejs \
