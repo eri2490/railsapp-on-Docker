@@ -2,10 +2,17 @@ doctype html
 html
   head
     title
-      | AppName
+      | Minimum SNS
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    = yield
+    header.navbar.navbar-fixed-top.navbar-inverse
+      .container
+        h3 Minimum SNS
+        nav
+          ul.nav.navbar-nav.navbar-right
+            li = link_to 'Log in', '#'
+    .container
+      = yield
