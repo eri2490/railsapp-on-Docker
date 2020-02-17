@@ -13,6 +13,11 @@ html
         h3 Minimum SNS
         nav
           ul.nav.navbar-nav.navbar-right
+            li = link_to 'Home', '#'
             li = link_to 'Log in', '#'
     .container
       = yield
+    footer.footer.container
+      nav
+        ul
+          li = link_to 'About', 'pages#about'
