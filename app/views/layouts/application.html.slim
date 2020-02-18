@@ -10,14 +10,14 @@ html
   body
     header.navbar.navbar-fixed-top.navbar-inverse
       .container
-        h3 Minimum SNS
+        h3 = link_to 'Minimum SNS', '/'
         nav
           ul.nav.navbar-nav.navbar-right
-            li = link_to 'Home', '#'
+            li = link_to 'Home', '/'
             li = link_to 'Log in', '#'
     .container
       = yield
     footer.footer.container
       nav
         ul
-          li = link_to 'About', 'pages#about'
+          li = link_to 'About', 'about'
