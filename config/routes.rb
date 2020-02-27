@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-  get 'users/new'
-  root 'pages#home'
+  
+  post '/users', to: 'users#create'
+  get '/users', to: 'users#index'
+  get '/signup', to: 'users#new'
+  get '/users/:id', to: 'users#show'
 
   get '/about', to: 'pages#about'
-  get '/signup', to: 'users#new'
+  root 'pages#home'
+  resources :users
 end
