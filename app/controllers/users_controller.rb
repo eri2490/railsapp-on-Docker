@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  def index
+    @users = User.all
+  end
+  
   def show
     @user = User.find(params[:id])
   end
@@ -8,17 +12,25 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(
-      name: params[:name],
-      email: params[:email],
-      password: params[:password]
-    )
-    @user.save
-    redirect_to("/users")
+    @user = User.new(user_params)
+    if @user.save
+      flash[:info] = "Successfully Signup!"
+      redirect_to root_url
+    else
+      # render 'new'
+    end
   end
-  
-  def index
+
+  private
+
+    def user_params
+      params.require(:user).permit(
+        :name,
+        :email,
+        :password,
+        :password_confirmation
+      )
+    end
     
-  end
   
 end
