@@ -1,3 +1,6 @@
 h1 All Users
 / ul class="users"
-= @users.name
+.container
+  .users-index-item
+    = @users.each do |user|
+      = link_to(user.name, "/users/#{user.id}")
