@@ -1,0 +1,11 @@
+h1 Posts
+= @posts.each do |post|
+  .row
+    .col-md-6.posts-index
+      .posts-index-item
+        = link_to post.user.name, post.user
+        .timestamp
+          = time_ago_in_words(post.created_at)
+          |   ago
+      .posts-index-content
+        = post.content

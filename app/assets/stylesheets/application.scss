@@ -121,3 +121,24 @@ input {
 .users-index-item a{
   display: table;
 }
+
+/*  posts/index ======================== */
+.posts-index{
+  padding-top: 25px;
+  border-bottom: 1px solid #eaeaea;
+  color: #777;
+}
+
+.posts-index-item{
+  font-size: 1.2em;
+}
+
+.posts-index-content{
+  font-size: 1.2em;
+}
+
+.timestamp{
+  font-size: 0.7em;
+  display: inline;
+  padding-left: 17px;
+}

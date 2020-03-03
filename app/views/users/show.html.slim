@@ -2,3 +2,10 @@
   h1 User Page
   h3 div=".user-content"
     = @user.name
+  / .row
+  /   .col-md-6
+  /   if @user.posts.any?
+  /     h3 Microposts (= @user.posts.count)
+  /     ol class="microposts"
+  /       =render @posts
+  /       =will_paginate @microposts
