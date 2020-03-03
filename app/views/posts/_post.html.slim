@@ -1,6 +1,8 @@
-li id="micropost- =post.id"
-  =link_to(post.user.name, post.user)
-  span class="content"
-    =post.content
-  span class="timestamp"
-    Posted =time_ago_in_words(post.created_at) ago.
+.col-md-8.posts-index
+      .posts-index-item
+        = link_to post.user.name, post.user
+        .timestamp
+          = time_ago_in_words(post.created_at)
+          |   ago
+      .posts-index-content
+        = post.content
