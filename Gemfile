@@ -14,6 +14,8 @@ gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 gem 'slim-rails'
 gem 'html2slim'
 
+# paginate
+gem 'will_paginate'
 # bootstrapの使用
 gem 'bootstrap'
 
