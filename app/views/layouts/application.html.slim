@@ -10,10 +10,10 @@ html
   body
     header.navbar.navbar-fixed-top.navbar-inverse
       .container
-        - if @current_user
-          h3 = link_to 'Minimum SNS', '/'
-        - else
+        - if logged_in?
           h3 = link_to 'Minimum SNS', posts_index_path
+        - else
+          h3 = link_to 'Minimum SNS', root_path
         nav
           ul.nav.navbar-nav.navbar-right
             - if logged_in?

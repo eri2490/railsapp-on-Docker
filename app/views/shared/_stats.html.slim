@@ -1,0 +1,5 @@
+/ = @user ||= current_user
+.stats
+    strong id="following"
+      = @user.following.count
+      |  following

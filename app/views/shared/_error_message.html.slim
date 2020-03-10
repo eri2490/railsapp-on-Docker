@@ -1,4 +1,8 @@
-- if @user.errors.any?
-  div id="alert alert-danger"
-    = @user.errors.full_messages.each do |msg|
-      = msg
+- if @object.errors.any?
+    #error_explanation
+      div id="alert alert-danger"
+        | The form contains 
+        pluralize(oblect.errors.count, "error")
+        ul
+        = @object.errors.full_messages.each do |msg|
+        li = msg

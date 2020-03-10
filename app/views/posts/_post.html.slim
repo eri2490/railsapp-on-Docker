@@ -1,8 +1,15 @@
 .col-md-8.posts-index
-      .posts-index-item
-        = link_to post.user.name, post.user
-        .timestamp
-          = time_ago_in_words(post.created_at)
-          |   ago
+  .posts-index-item
+    = link_to post.user.name, post.user
+    .timestamp
+      = time_ago_in_words(post.created_at)
+      |   ago
       .posts-index-content
         = post.content
+        / .like
+        / - if Like.find_by(post_id: @post.id)
+        /   p
+        /     | Liked
+        / - else
+        /   p
+        /     | Like

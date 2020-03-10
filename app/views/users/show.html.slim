@@ -1,5 +1,10 @@
 .user_page
   h1 = @user.name
+  .center
+    = render 'follow_form' if logged_in?
+    section class="stats"
+    = render 'shared/stats'
+
   if = @user.posts.any?
     = render @posts
-    / = will_paginate @posts
+    = will_paginate @posts

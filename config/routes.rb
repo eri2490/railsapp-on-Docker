@@ -11,6 +11,12 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about'
   root 'pages#home'
 
-  resources :users
+  resources :users do
+    member do
+      get :following
+    end
+  end
+  
   resources :posts
+  resources :relationships, only: [:create, :destroy]
 end

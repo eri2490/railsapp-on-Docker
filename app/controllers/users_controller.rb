@@ -33,6 +33,17 @@ class UsersController < ApplicationController
         :password_confirmation
       )
     end
+
+    # before_action
+
+    # def logged_in_user
+    #   unless logged_in?
+    # end
+    
+    # def correct_user
+    #   @user = User.find(params[:id])
+    #   redirect_to(root_url) unless current_user?
+    # end
     
   
 end

@@ -122,6 +122,12 @@ input {
   display: table;
 }
 
+/*  users/relationships ======================== */
+#follow_form{
+  width: 15%;
+  margin: 0 auto;
+}
+
 /*  posts/index ======================== */
 .posts-index{
   padding-top: 25px;
@@ -152,3 +158,5 @@ input {
 .field textarea{
   height: 144px;
 }
+
+
