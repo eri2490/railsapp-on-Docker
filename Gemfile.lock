@@ -57,6 +57,8 @@ GEM
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 1.14.3, < 2)
       sassc-rails (>= 2.0.0)
+    bootstrap-will_paginate (1.0.0)
+      will_paginate
     builder (3.2.4)
     byebug (11.1.1)
     capybara (3.31.0)
@@ -223,6 +225,7 @@ DEPENDENCIES
   bcrypt
   bootsnap (>= 1.1.0)
   bootstrap
+  bootstrap-will_paginate
   byebug
   capybara (>= 2.15)
   chromedriver-helper

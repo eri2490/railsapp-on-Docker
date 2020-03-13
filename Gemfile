@@ -16,6 +16,7 @@ gem 'html2slim'
 
 # paginate
 gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 # bootstrapの使用
 gem 'bootstrap'
 

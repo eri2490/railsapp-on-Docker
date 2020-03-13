@@ -1,6 +1,7 @@
 h1 All Users
-/ ul class="users"
+ul class="users"
 .container
   .users-index-item
     = @users.each do |user|
       = link_to(user.name, "/users/#{user.id}")
+    = will_paginate
