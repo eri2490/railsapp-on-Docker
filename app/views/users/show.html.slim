@@ -3,8 +3,8 @@
   .center
     = render 'follow_form' if logged_in?
     section class="stats"
-    = render 'shared/stats'
-
+      = render 'shared/stats'
+  
   if = @user.posts.any?
     = render @posts
     = will_paginate @posts
