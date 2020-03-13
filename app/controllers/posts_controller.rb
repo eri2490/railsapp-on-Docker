@@ -2,7 +2,9 @@ class PostsController < ApplicationController
   # before_action :authenticate_user
   
   def index
-    @posts = Post.all.order(created_at: :desc)
+    @posts = Post.paginate(page: params[:page]).order(created_at: :desc)
+    @post = Post.new
+    # @like = Like.new
   end
 
   def new
@@ -20,11 +22,10 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find_by(id: params[:id])
+    @post = Post.find_by(id: params[:id]).paginate(page: params[:page])
     @user = @post.user
+    @like = Like.new
   end
-  
-
 
   private
 
@@ -34,6 +35,4 @@ class PostsController < ApplicationController
       )
     end
     
-  
-  
 end

@@ -1,15 +1,15 @@
 .col-md-8.posts-index
   .posts-index-item
-    = link_to post.user.name, post.user
+    = link_to post.user.name, @post.user
     .timestamp
       = time_ago_in_words(post.created_at)
       |   ago
-      .posts-index-content
-        = post.content
-        / .like
-        / - if Like.find_by(post_id: @post.id)
-        /   p
-        /     | Liked
-        / - else
-        /   p
-        /     | Like
+    .posts-index-content
+      = post.content
+    .like
+      - if current_user.already_liked?(post)
+        = link_to 'Liked', post_like_path(post), method: :delete
+        
+      - else
+        = link_to 'Like', post_likes_path(post), method: :post
+        

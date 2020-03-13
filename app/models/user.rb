@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-  has_many :posts
+  has_many :posts, dependent: :destroy
+  has_many :likes, dependent: :destroy
   has_many :active_relationships, class_name: "Relationship",
                                    foreign_key: "user_id",
                                    dependent: :destroy
@@ -18,6 +19,7 @@ class User < ApplicationRecord
 
   # ユーザーをフォローする
   def follow(other_user)
+    byebug
     active_relationships.create(follow_user_id: other_user.id)
     # following << other_user
   end
@@ -31,5 +33,10 @@ class User < ApplicationRecord
   def following?(other_user)
     following.include?(other_user)
   end
-  
+
+  # いいねしていればtrueを返す
+  def already_liked?(post)
+    self.likes.exists?(post_id: post.id)
+  end
+    
 end
