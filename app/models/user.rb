@@ -16,16 +16,18 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: true
   has_secure_password
+  validates :password, presence: true, length: {minimum: 6}
 
   # ユーザーをフォローする
   def follow(other_user)
-    byebug
+    # byebug
     active_relationships.create(follow_user_id: other_user.id)
     # following << other_user
   end
 
   # ユーザーをフォロー解除する
   def unfollow(other_user)
+    # byebug
     active_relationships.find_by(follow_user_id: other_user.id).destroy
   end
   
