@@ -17,8 +17,12 @@ gem 'html2slim'
 # paginate
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+
 # bootstrapの使用
 gem 'bootstrap'
+
+# jQuery
+gem "jquery-rails"
 
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
