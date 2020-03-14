@@ -4,8 +4,7 @@ class User < ApplicationRecord
   has_many :active_relationships, class_name: "Relationship",
                                    foreign_key: "user_id",
                                    dependent: :destroy
-  has_many :following, through: :active_relationships, 
-                       source: :follow_user
+  has_many :following, through: :active_relationships, source: :follow_user
 
   before_save { email.downcase! }
   validates :name, presence: true, 

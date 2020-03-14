@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :logged_in_user, only: [:index, :show, :new, :create, :following]
+
   def index
     @users = User.paginate(page: params[:page])
   end
@@ -36,10 +38,6 @@ class UsersController < ApplicationController
     end
 
     # before_action
-
-    # def logged_in_user
-    #   unless logged_in?
-    # end
     
     # def correct_user
     #   @user = User.find(params[:id])
