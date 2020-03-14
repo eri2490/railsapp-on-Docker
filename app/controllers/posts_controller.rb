@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.paginate(page: params[:page]).order(created_at: :desc)
     @post = Post.new
-    # @like = Like.new
+    @like = Like.new
   end
 
   def new

@@ -1,15 +1,15 @@
 .col-md-8.posts-index
   .posts-index-item
-    = link_to post.user.name, @post.user
+    = link_to post.user.name, post.user
     .timestamp
       = time_ago_in_words(post.created_at)
       |   ago
     .posts-index-content
       = post.content
-    .like
-      - if current_user.already_liked?(post)
-        = link_to 'Liked', post_like_path(post), method: :delete
-        
+    #like
+      / = render 'posts/like'
+      - if current_user.already_liked?(@post)
+        = link_to 'Liked', post_like_path(post), remote: true, method: :delete
       - else
-        = link_to 'Like', post_likes_path(post), method: :post
-        
+        = link_to 'Like', post_likes_path(post), remote: true, method: :post
+    #comments Comment
