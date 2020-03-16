@@ -2,14 +2,14 @@ class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index, :show, :new, :create, :following]
 
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.paginate(page: params[:page]).order(created_at: :desc)
   end
   
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.paginate(page: params[:page])
     @post = Post.find(params[:id])
-    @like = Like.new
+    #  @like = @user.like
   end
 
   def new

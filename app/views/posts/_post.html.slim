@@ -6,15 +6,12 @@
       |   ago
     .posts-index-content
       = post.content
-    #like
-      / = render 'posts/like'
-      - if current_user.already_liked?(@post)
-        = link_to 'Liked', post_like_path(post), remote: true, method: :delete
-      - else
-        = link_to 'Like', post_likes_path(post), remote: true, method: :post
-    #comment
-      #comment_area
-        = render partial: 'comments/index', locals: { comments: @comments }
-      - if logged_in?
-      #comment_form
-      = render partial: 'comments/comment_form', locals: { comment: @comment, post: @post }
+    - if logged_in?
+      #like
+        = render partial: 'posts/like' , locals: { post: post }
+      / #comment
+      /   #comment_area
+      /     = render partial: 'comments/index', locals: { comments: @comments }
+      /   - if logged_in?
+      /   #comment_form
+        / = render partial: 'comments/comment_form', locals: { comment: @comment, post: @post }

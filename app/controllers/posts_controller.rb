@@ -4,7 +4,6 @@ class PostsController < ApplicationController
   def index
     @posts = Post.paginate(page: params[:page]).order(created_at: :desc)
     @post = Post.new
-    @like = Like.new
   end
 
   def new
@@ -15,26 +14,24 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
     if @post.save
       flash[:success]  = "Posted!!!"
-      redirect_to posts_index_path
+      redirect_to post_path
     else
       render login_path
     end
   end
 
   def show
-    @post = Post.find_by(id: params[:id]).paginate(page: params[:page])
+    @post = Post.find_by(id: params[:id])
     @user = @post.user
     @like = Like.new
-    @comment = Comment.new
-    @comments = @post.comments
+    # @comment = Comment.new
+    # @comments = @post.comments
   end
 
   private
 
     def post_params
-      params.require(:post).permit(
-        :content
-      )
+      params.require(:post).permit(:content)
     end
     
 end

@@ -38,12 +38,12 @@ class User < ApplicationRecord
 
   # いいねしていればtrueを返す
   def already_liked?(post)
-    self.likes.exists?(post_id: post.id)
+    self.likes.where(post_id: post.id).exists?
   end
 
-  def comment(post)
-    comments.create(post_id: post.id)
-  end
+  # def comment(post)
+  #   comments.create(post_id: post.id)
+  # end
   
     
 end

@@ -11,13 +11,13 @@ html
     header.navbar.navbar-fixed-top.navbar-inverse
       .container
         - if logged_in?
-          h3 = link_to 'Minimum SNS', posts_index_path
+          h3 = link_to 'Minimum SNS', posts_path
         - else
           h3 = link_to 'Minimum SNS', root_path
         nav
           ul.nav.navbar-nav.navbar-right
             - if logged_in?
-              li = link_to 'New Post', posts_new_path
+              li = link_to 'New Post', new_post_path
               li = link_to 'All Users', users_path
               li = link_to 'Profile', current_user
               li = link_to 'Logout', logout_path, method: :delete
