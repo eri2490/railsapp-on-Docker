@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_many :active_relationships, class_name: "Relationship",
                                    foreign_key: "user_id",
                                    dependent: :destroy
@@ -39,5 +40,10 @@ class User < ApplicationRecord
   def already_liked?(post)
     self.likes.exists?(post_id: post.id)
   end
+
+  def comment(post)
+    comments.create(post_id: post.id)
+  end
+  
     
 end

@@ -25,6 +25,8 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id]).paginate(page: params[:page])
     @user = @post.user
     @like = Like.new
+    @comment = Comment.new
+    @comments = @post.comments
   end
 
   private

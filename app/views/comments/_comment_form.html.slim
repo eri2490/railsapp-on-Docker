@@ -1,0 +1,6 @@
+= if logged_in?
+  = form_for([@post, @comment]) do |f|
+    = f.label :comment
+    = f.text_area :comment
+
+    = f.submit "Comment", class: "btn btn-primary"

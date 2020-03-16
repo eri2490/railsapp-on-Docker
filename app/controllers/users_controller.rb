@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @posts = @user.posts.paginate(page: params[:page])
     @post = Post.find(params[:id])
-    # @like = Like.new
+    @like = Like.new
   end
 
   def new
