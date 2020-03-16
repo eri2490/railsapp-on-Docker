@@ -15,13 +15,9 @@ Rails.application.routes.draw do
   end
   
   resources :relationships, only: [:create, :destroy]
-  
+
   resources :posts do
     resources :likes, only: [:create, :destroy]
-    resources :comments, only: [:create, :destroy]
+    resources :comments, only: :create
   end
-
-  get 'posts/new'
-  get 'posts/index'
-  
 end
