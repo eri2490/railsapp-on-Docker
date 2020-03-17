@@ -9,9 +9,8 @@
     - if logged_in?
       #like
         = render partial: 'posts/like' , locals: { post: post }
-      / #comment
-      /   #comment_area
-      /     = render partial: 'comments/index', locals: { comments: @comments }
-      /   - if logged_in?
-      /   #comment_form
-        / = render partial: 'comments/comment_form', locals: { comment: @comment, post: @post }
+      #comment
+        #comment_area
+          = render partial: 'comments/comment', locals: { post: post, comment: @comment }
+        #comment_form
+        = render partial: 'comments/comment_form', locals: { post: post, comment: @comment }

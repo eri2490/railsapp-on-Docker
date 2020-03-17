@@ -20,14 +20,12 @@ class User < ApplicationRecord
 
   # ユーザーをフォローする
   def follow(other_user)
-    # byebug
     active_relationships.create(follow_user_id: other_user.id)
     # following << other_user
   end
 
   # ユーザーをフォロー解除する
   def unfollow(other_user)
-    # byebug
     active_relationships.find_by(follow_user_id: other_user.id).destroy
   end
   
@@ -41,9 +39,9 @@ class User < ApplicationRecord
     self.likes.where(post_id: post.id).exists?
   end
 
-  # def comment(post)
-  #   comments.create(post_id: post.id)
+  # commentsの有無を判定
+  # def any_comments?
+  #   user.comments.exists?
   # end
   
-    
 end

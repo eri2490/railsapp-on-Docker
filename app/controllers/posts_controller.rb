@@ -4,6 +4,8 @@ class PostsController < ApplicationController
   def index
     @posts = Post.paginate(page: params[:page]).order(created_at: :desc)
     @post = Post.new
+    @like = Like.new
+    @comments = @post.comments
   end
 
   def new
@@ -23,9 +25,9 @@ class PostsController < ApplicationController
   def show
     @post = Post.find_by(id: params[:id])
     @user = @post.user
-    @like = Like.new
-    # @comment = Comment.new
-    # @comments = @post.comments
+    # @like = Like.new
+    @comment = current_user.comments.build
+    @comments = @post.comments
   end
 
   private

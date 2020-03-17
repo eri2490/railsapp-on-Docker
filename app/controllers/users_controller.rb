@@ -3,13 +3,16 @@ class UsersController < ApplicationController
 
   def index
     @users = User.paginate(page: params[:page]).order(created_at: :desc)
+    # @posts = @users.posts
+    # @comments = @posts.comments
   end
   
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.paginate(page: params[:page])
-    @post = Post.find(params[:id])
-    #  @like = @user.like
+    byebug
+    @comment = @posts.comments      # Asociation Error for Post.comments disappered 
+    @like = Like.new
   end
 
   def new
