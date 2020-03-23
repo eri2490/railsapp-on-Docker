@@ -1,4 +1,4 @@
-- if @comments
-/ = @comment.each do | comment |
-  = comment
-|Comment: ""
+- if post.comments.any?
+    = post.comments.each do |comment|
+      div.comment_content
+        = comment.comment

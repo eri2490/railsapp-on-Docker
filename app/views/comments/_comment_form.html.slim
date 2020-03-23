@@ -1,5 +1,4 @@
 = if logged_in?
-  = form_for([post, comment], remote: true) do |f|
-    = f.label :comment
+  = form_for([post, @comment]) do |f|
     = f.text_area :comment
     = f.submit "Comment", class: "btn btn-primary"
