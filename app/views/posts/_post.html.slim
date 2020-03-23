@@ -8,9 +8,9 @@
       = post.content
     - if logged_in?
       #like
-        = render partial: 'posts/like' , locals: { post: post }
+        = render partial: 'posts/like' , locals: {post: post}
       #comment
-        #comment_area
+        / #comment_area
           = render partial: 'comments/comment', locals: { post: post, comment: @comment }
         #comment_form
-        = render partial: 'comments/comment_form', locals: { post: post, comment: @comment }
+          = render partial: 'comments/comment_form', locals: { post: post, comment: @comment }

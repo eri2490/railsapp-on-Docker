@@ -3,9 +3,13 @@ class PostsController < ApplicationController
   
   def index
     @posts = Post.paginate(page: params[:page]).order(created_at: :desc)
-    @post = Post.new
+    @post = Post.find_by(id: params[:id])
+    # @user = User.find(params[:id])    // Comment out for Like model
+    # @comments = @post.comments        // Comment out for Like model
+    # @user = @post.user
     @like = Like.new
-    @comments = @post.comments
+    @comment = Comment.new
+    # @comments = @post.comments
   end
 
   def new
@@ -26,14 +30,14 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     @user = @post.user
     # @like = Like.new
-    @comment = current_user.comments.build
+    @comment = @post.comments.build
     @comments = @post.comments
   end
 
   private
 
     def post_params
-      params.require(:post).permit(:content)
+      params.require(:post).permit(:comment)
     end
     
 end

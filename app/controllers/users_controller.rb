@@ -10,9 +10,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.paginate(page: params[:page])
-    byebug
-    @comment = @posts.comments      # Asociation Error for Post.comments disappered 
     @like = Like.new
+    @comment = Comment.new
+    logger.debug(@like)
   end
 
   def new
