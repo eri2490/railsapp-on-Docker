@@ -9,7 +9,6 @@ class PostsController < ApplicationController
     # @user = @post.user
     @like = Like.new
     @comment = Comment.new
-    # @comments = @post.comments
   end
 
   def new

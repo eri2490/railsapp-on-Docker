@@ -3,8 +3,6 @@ class UsersController < ApplicationController
 
   def index
     @users = User.paginate(page: params[:page]).order(created_at: :desc)
-    # @posts = @users.posts
-    # @comments = @posts.comments
   end
   
   def show
@@ -12,7 +10,6 @@ class UsersController < ApplicationController
     @posts = @user.posts.paginate(page: params[:page])
     @like = Like.new
     @comment = Comment.new
-    logger.debug(@like)
   end
 
   def new

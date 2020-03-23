@@ -8,7 +8,7 @@
       = post.content
     - if logged_in?
       #like
-        = render partial: 'posts/like' , locals: {post: post}
+        = render partial: 'posts/like', locals: { post: post }
       #comment
         #comment_area
           = render partial: 'comments/comment', locals: { post: post }
