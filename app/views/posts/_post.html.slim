@@ -7,7 +7,7 @@
     .posts-index-content
       = post.content
     - if logged_in?
-      #like
+      div id="like_#{post.id}"
         = render partial: 'posts/like', locals: { post: post }
       #comment
         #comment_area

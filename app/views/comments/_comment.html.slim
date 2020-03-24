@@ -1,4 +1,4 @@
 - if post.comments.any?
-  = post.comments.each do |comment|
+  - post.comments.each do |comment|
     #comment_content
       = comment.comment
