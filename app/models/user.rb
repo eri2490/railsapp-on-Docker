@@ -38,10 +38,5 @@ class User < ApplicationRecord
   def already_liked?(post)
     self.likes.where(post_id: post.id).exists?
   end
-
-  # commentsの有無を判定
-  # def any_comments?
-  #   user.comments.exists?
-  # end
   
 end

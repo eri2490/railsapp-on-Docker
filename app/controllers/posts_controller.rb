@@ -5,7 +5,7 @@ class PostsController < ApplicationController
     @posts = Post.paginate(page: params[:page]).order(created_at: :desc)
     @post = Post.find_by(id: params[:id])
     # @user = User.find(params[:id])    // Comment out for Like model
-    # @comments = @post.comments        // Comment out for Like model
+    # @comments = @post.comments        // Comment out for Like model -> for /posts
     # @user = @post.user
     @like = Like.new
     @comment = Comment.new
@@ -17,6 +17,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
+    @post.user_id = current_user.id
     if @post.save
       flash[:success]  = "Posted!!!"
       redirect_to post_path
@@ -25,13 +26,13 @@ class PostsController < ApplicationController
     end
   end
 
-  def show
-    @post = Post.find_by(id: params[:id])
-    @user = @post.user
-    # @like = Like.new
-    @comment = @post.comments.build
-    @comments = @post.comments
-  end
+  ###### DID NOT USE show ACTION ########
+  # def show
+  #   @post = Post.find_by(id: params[:id])
+  #   @user = @post.user                  
+  #   @like = @post.likes.build
+  #   @comment = @post.comments.build
+  # end
 
   private
 
