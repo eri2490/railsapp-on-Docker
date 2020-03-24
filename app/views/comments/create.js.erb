@@ -1,2 +1,2 @@
-$("#comment_area").html("<%= escape_javascript(render 'comment', post: @post, comments: @post.comments) %>");
+$("#comment_area_<%= @post.id %>").html("<%= escape_javascript(render 'comment', post: @post, comments: @post.comments) %>");
 $("textarea").val('')

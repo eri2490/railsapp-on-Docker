@@ -10,7 +10,7 @@
       div id="like_#{post.id}"
         = render partial: 'posts/like', locals: { post: post }
       #comment
-        #comment_area
+        div id="comment_area_#{post.id}"
           = render partial: 'comments/comment', locals: { post: post }
         #comment_form
           = render partial: 'comments/comment_form', locals: { post: post }
