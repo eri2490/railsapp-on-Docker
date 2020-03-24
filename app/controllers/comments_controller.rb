@@ -3,14 +3,13 @@ class CommentsController < ApplicationController
 
   def create
     @post = Post.find_by(id: params[:post_id])
-    byebug
     @comment = @post.comments.build(comment_params)
     @comment.user_id = current_user.id
-    # @comment.save     // comment-out for form
-    # respond_to do |format|
-    #   format.html
-    #   format.js
-    # end
+    @comment.save
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   private

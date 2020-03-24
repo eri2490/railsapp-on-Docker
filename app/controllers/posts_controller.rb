@@ -5,10 +5,10 @@ class PostsController < ApplicationController
     @posts = Post.paginate(page: params[:page]).order(created_at: :desc)
     @post = Post.find_by(id: params[:id])
     # @user = User.find(params[:id])    // Comment out for Like model
-    # @comments = @post.comments        // Comment out for Like model -> for /posts
     # @user = @post.user
     @like = Like.new
     @comment = Comment.new
+    # @comments = @post.comments.order(created_at: :desc)
   end
 
   def new
@@ -20,7 +20,7 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
     if @post.save
       flash[:success]  = "Posted!!!"
-      redirect_to post_path
+      redirect_to posts_path
     else
       render login_path
     end
@@ -37,7 +37,7 @@ class PostsController < ApplicationController
   private
 
     def post_params
-      params.require(:post).permit(:comment)
+      params.require(:post).permit(:content)
     end
     
 end
