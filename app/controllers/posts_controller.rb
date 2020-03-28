@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  # before_action :authenticate_user
+  before_action :logged_in_user, only: [:index, :new, :create]
   
   def index
     @posts = Post.paginate(page: params[:page]).order(created_at: :desc)
