@@ -1,4 +1,6 @@
 - if current_user.already_liked?(post)
-  = link_to 'Liked', post_likes_path(post.id), method: :delete, remote: true
+  = link_to(post_likes_path(post.id), method: :delete, remote: true) do
+    i class="fas fa-heart liked-button"
 - else
-  = link_to 'Like', post_likes_path(post.id), method: :post, remote: true
+  = link_to(post_likes_path(post.id), method: :post, remote: true) do
+    i class="fas fa-heart like-button"

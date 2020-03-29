@@ -21,6 +21,9 @@ gem 'bootstrap-will_paginate'
 # bootstrapの使用
 gem 'bootstrap'
 
+# font-awesomeの使用
+gem 'font-awesome-sass'
+
 # jQuery
 gem "jquery-rails"
 
