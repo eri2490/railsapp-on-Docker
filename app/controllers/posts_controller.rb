@@ -26,14 +26,6 @@ class PostsController < ApplicationController
     end
   end
 
-  ###### DID NOT USE show ACTION ########
-  # def show
-  #   @post = Post.find_by(id: params[:id])
-  #   @user = @post.user                  
-  #   @like = @post.likes.build
-  #   @comment = @post.comments.build
-  # end
-
   private
 
     def post_params
